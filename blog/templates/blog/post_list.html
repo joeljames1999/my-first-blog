@@ -4,20 +4,16 @@
         <title>Joel's blog</title>
     </head>
     <body>
-        <header>
-            <h1><a href="/">Django Girls Blog</a></h1>
-        </header>
+        <div>
+            <h1><a href="/">Joel's Blog</a></h1>
+        </div>
 
-        <article>
-            <time>published: 14.07.2021, 14:33</time>
-            <h2><a href="">My first post</a></h2>
-            <p> temp post </p>
-        </article>
-
-        <article>
-            <time>published: 14.07.2021, 14:34</time>
-            <h2><a href="">My second post</a></h2>
-            <p>temp post</p>
-        </article>
+        {% for post in posts %}
+            <article>
+                <time>published: {{ post.published_date }}</time>
+                <h2><a href="">{{ post.title }}</a></h2>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </article>
+        {% endfor %}
     </body>
 </html>
